@@ -12,7 +12,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/bbangert/toml"
+	"github.com/BurntSushi/toml"
 	"github.com/golang/glog"
 )
 
