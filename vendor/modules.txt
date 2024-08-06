@@ -1,0 +1,44 @@
+# github.com/BurntSushi/toml v1.4.0
+## explicit; go 1.18
+github.com/BurntSushi/toml
+github.com/BurntSushi/toml/internal
+# github.com/davecgh/go-spew v1.1.1
+## explicit
+github.com/davecgh/go-spew/spew
+# github.com/golang/glog v1.2.2
+## explicit; go 1.19
+github.com/golang/glog
+github.com/golang/glog/internal/logsink
+github.com/golang/glog/internal/stackdump
+# github.com/jmoiron/sqlx v1.4.0
+## explicit; go 1.10
+github.com/jmoiron/sqlx
+github.com/jmoiron/sqlx/reflectx
+# github.com/lib/pq v1.10.9
+## explicit; go 1.13
+github.com/lib/pq
+github.com/lib/pq/oid
+github.com/lib/pq/scram
+# github.com/mattn/go-runewidth v0.0.9
+## explicit; go 1.9
+github.com/mattn/go-runewidth
+# github.com/olekukonko/tablewriter v0.0.5
+## explicit; go 1.12
+github.com/olekukonko/tablewriter
+# github.com/pmezard/go-difflib v1.0.0
+## explicit
+github.com/pmezard/go-difflib/difflib
+# github.com/stretchr/testify v1.9.0
+## explicit; go 1.17
+github.com/stretchr/testify/assert
+# github.com/wgliang/pgproxy v0.0.0-20170502033211-e19ae27c28d7
+## explicit
+github.com/wgliang/pgproxy/parser
+github.com/wgliang/pgproxy/parser/dependency/bson
+github.com/wgliang/pgproxy/parser/dependency/bytes2
+github.com/wgliang/pgproxy/parser/dependency/hack
+github.com/wgliang/pgproxy/parser/dependency/sqltypes
+github.com/wgliang/pgproxy/proxy
+# gopkg.in/yaml.v3 v3.0.1
+## explicit
+gopkg.in/yaml.v3

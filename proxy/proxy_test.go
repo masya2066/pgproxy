@@ -19,37 +19,42 @@ var (
 
 func Benchmark_Start(b *testing.B) {
 	go Start(testProxyHost, testRemoteHost, parser.GetQueryModificada)
+
+	// Give the service some time to start up properly
 	time.Sleep(3 * time.Second)
 
+	// Open the database connection
 	db, err := sqlx.Open("postgres", "host=127.0.0.1 user=postgres password=xxxxx dbname=db port=9090 sslmode=disable")
 	if err != nil {
-		b.Error(err)
+		b.Fatal(err) // Use Fatal to stop the benchmark if the error occurs
 	}
+	defer db.Close() // Ensure the connection is closed when the function exits
+
 	db.SetMaxIdleConns(1)
 	db.SetMaxOpenConns(100)
 
+	// Benchmarking loop
 	for i := 0; i < b.N; i++ {
-		sql := fmt.Sprintf("select id from client where id = %d", i)
-		fmt.Println(sql)
+		sql := fmt.Sprintf("SELECT id FROM client WHERE id = %d", i)
 		rows, err := db.Query(sql)
 		if err != nil {
 			b.Error(err)
-		} else {
-			for rows.Next() {
-				var n int
-				err = rows.Scan(&n)
-				if err != nil {
-					b.Error(err)
-				} else {
-					if n != i {
-						b.Errorf("result is not match,n=%d but id=%d", n, i)
-					}
+			continue // Skip to the next iteration
+		}
+
+		var n int
+		for rows.Next() {
+			err = rows.Scan(&n)
+			if err != nil {
+				b.Error(err)
+			} else {
+				if n != i {
+					b.Errorf("result does not match: n=%d, id=%d", n, i)
 				}
 			}
 		}
+		rows.Close() // Close rows after processing
 	}
-	db.Close()
-	os.Exit(0)
 }
 
 func Test_Start(t *testing.T) {

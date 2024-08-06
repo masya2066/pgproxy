@@ -6,7 +6,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/masya2066/pgproxy/tree/master/cli"
+	"github.com/masya2066/pgproxy/cli"
 )
 
 func main() {

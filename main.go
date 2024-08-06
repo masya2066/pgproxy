@@ -6,7 +6,7 @@
 package main
 
 import (
-	"github.com/masya2066/pgproxy/tree/master/cli"
+	"github.com/masya2066/pgproxy/cli"
 )
 
 func main() {
